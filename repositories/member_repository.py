@@ -19,6 +19,9 @@ def save(member):
 
 
 # Delete all
+def delete_all():
+    sql = "DELETE FROM members"
+    run_sql(sql)
 
 
 # Acivity(member)
