@@ -1,8 +1,8 @@
 import unittest
 from datetime import datetime
-from models.activity import Activity
-from models.member import Member
 from models.session import Session
+from models.member import Member
+from models.activity import Activity
 
 
 class TestSession(unittest.TestCase):
