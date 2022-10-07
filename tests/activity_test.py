@@ -12,3 +12,6 @@ class TestActivity(unittest.TestCase):
 
     def Test_activity_has_title(self):
         self.assertEqual("Body Pump", self.activity.title)
+
+    def Test_activity_has_id(self):
+        self.assertEqual(1, self.activity.id)

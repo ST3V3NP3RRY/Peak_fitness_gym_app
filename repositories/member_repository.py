@@ -21,7 +21,7 @@ def select_all():
     for row in results:
         member = Member(row["name"], row["id"])
         members.append(member)
-    return member
+    return members
 
 
 # Select(id)
