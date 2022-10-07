@@ -16,12 +16,49 @@ def save(activity):
 
 
 # Select_all
+def select_all():
+    activities = []
+    sql = "SELECT * FROM activities"
+    results = run_sql(sql)
+
+    for row in results:
+        activity = Activity(row["name"], row["title"], row["id"])
+        activities.append(activity)
+    return activities
 
 
 # Select(id)
+def select(id):
+    activity = None
+    sql = "SELECT * FROM activities WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        activities = Activity(result["name"], result["title"], result["id"])
+    return activity
 
 
 # def members(location):
+def members(activity):
+    members = []
+
+    # 1. SELECT all columns from the members table
+
+    sql = """
+    SELECT members.* FROM members 
+    INNER JOIN sessions 
+    ON sessions.member_id = member.id 
+    WHERE activity_id = %s
+    """
+    values = [activity.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        member = Member(row["name"], row["title"], row["id"])
+        members.append(member)
+
+    return members
 
 
 def delete_all():

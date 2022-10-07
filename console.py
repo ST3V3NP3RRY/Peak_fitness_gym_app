@@ -41,3 +41,15 @@ session_repository.save(session2)
 
 session3 = Session(member2, activity3, 2022107, 1000, 30)
 session_repository.save(session3)
+
+session4 = Session(member2, activity1, 2022109, 1730, 45)
+session_repository.save(session4)
+
+active = member_repository.activity(session4)
+
+activity_session = session_repository.activity(session1)
+members_session = session_repository.member(session2)
+
+
+print(members_session.id)
+print(activity_session.title)
