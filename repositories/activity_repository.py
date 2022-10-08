@@ -35,7 +35,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        activities = Activity(result["name"], result["title"], result["id"])
+        activity = Activity(result["name"], result["title"], result["id"])
     return activity
 
 

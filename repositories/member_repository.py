@@ -45,18 +45,17 @@ def delete_all():
 
 
 # Activity(member)
-def activity(member):
+def activities(member):
     members = []
 
     sql = """
-    SELECT members.* FROM members 
+    SELECT activities.* FROM activities 
     INNER JOIN sessions 
-    ON activities.member_id = members.id
-    WHERE activity_id = %s
+    ON sessions.activity_id = activities.id WHERE member_id = %s
     """
     values = [member.id]
     results = run_sql(sql, values)
     for row in results:
         member = Member(row["name"], row["age"], row["address"], row["id"])
         members.append(member)
-    return member
+    return members

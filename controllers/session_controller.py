@@ -16,8 +16,22 @@ def sessions():
     return render_template("sessions/index.html", sessions=sessions)
 
 
+# Make a new session
 @session_blueprint.route("/sessions/new", methods=["GET"])
 def new_session():
     members = member_repository.select_all()
     activities = activity_repository.select_all()
     return render_template("sessions/new.html", members=members, activities=activities)
+
+
+# Create a New session
+@session_blueprint.route("/sessions/index", methods=["POST"])
+def create_session():
+    member_id = request.form["member_id"]
+    activity_id = request.form["activity_id"]
+    date_of_class = request.form["date_of_class"]
+    time_of_class = request.form["time_of_class"]
+    duration = request.form["duration"]
+    session = Session(member_id, activity_id, date_of_class, time_of_class, duration)
+    session_repository.save(session)
+    return redirect("/sessions/index")

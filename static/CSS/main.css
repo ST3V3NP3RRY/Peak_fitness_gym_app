@@ -51,6 +51,11 @@ header > nav > ul > li {
   align-items: center;
 }
 
+.flex-row {
+  display: flex;
+  gap: 3rem;
+}
+
 footer {
   height: 5vh;
   display: flex;

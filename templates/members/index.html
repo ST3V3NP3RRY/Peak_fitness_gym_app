@@ -1,12 +1,16 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Current Members</h1>
+<h1>Members</h1>
 <table>
   <tr>
     <th>Name</th>
+    <th>age</th>
+    <th>Address</th>
   </tr>
   {% for member in members %}
   <tr class="row_bgcolor">
     <td><a href="/members/{{ member.id }}"> {{ member.name }}</a></td>
+    <td>{{ member.age }}</td>
+    <td>{{ member.address }}</td>
   </tr>
   {% endfor %}
 </table>

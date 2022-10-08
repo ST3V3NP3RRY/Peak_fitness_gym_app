@@ -1,7 +1,14 @@
 {% extends 'base.html' %} {% block content %}
-<h1>{{ member.name }}</h1>
-<p>{{ member.age }}</p>
-<p>{{ member.address }}</p>
+<h1>{{ members.name }}</h1>
+<p>Age: {{ members.age }}</p>
+<p>Address: {{ members.address }}</p>
 
-<h3>Classes:</h3>
+<h3>Current scheduled classes:</h3>
+
+<ul>
+  {% for activity in activities %}
+  <li>{{ activity.name }}</li>
+  {% endfor %}
+</ul>
+
 {% endblock content %}

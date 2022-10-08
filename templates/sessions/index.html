@@ -1,20 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+
 <h1>Sessions</h1>
-
-{% block content %}
-<ul>
+<ul class="flex-row">
   {% for session in sessions %}
-
   <li>
-    <p>{{ session.activity.id }}</p>
-
-    <p>Enrolled members: {{ session.member.name }}</p>
+    <p>{{ session.activity.name }} | {{ session.activity.title }}</p>
 
     <p>Date: {{ session.date_of_class }}</p>
     <p>Time: {{ session.time_of_class }}</p>
     <p>Duration: {{ session.duration }}</p>
+    <hr />
   </li>
-
   {% endfor %}
 </ul>
 <button class="btn"><a href="/sessions/new">New Session</a></button>
