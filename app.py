@@ -1,11 +1,13 @@
 from flask import Flask, render_template
 from controllers.member_controller import member_blueprint
 from controllers.activity_controller import activity_blueprint
+from controllers.session_controller import session_blueprint
 
 app = Flask(__name__)
 
 app.register_blueprint(member_blueprint)
 app.register_blueprint(activity_blueprint)
+app.register_blueprint(session_blueprint)
 
 
 @app.route("/")
