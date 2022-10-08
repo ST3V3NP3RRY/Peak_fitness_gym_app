@@ -2,12 +2,11 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Title</th>
+    <th>Exercise type</th>
   </tr>
   {% for activity in activities %}
   <tr>
     <td><a href="/activities/{{ activity.id }}"> {{ activity.name }} </a></td>
-    <td>|</td>
     <td>{{ activity.title }}</td>
   </tr>
 
