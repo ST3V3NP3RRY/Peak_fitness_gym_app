@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Add New Session</h1>
+
+<form action="/sessions/index" methods="post">
+  <label for="member">Select Member:</label>
+  <select name="member_id" id="member">
+    {% for member in members %}
+    <option value="{{ member.id }}">{{ member.name }}</option>
+    {% endfor %}
+  </select>
+
+  <label for="activity">Select an activity:</label>
+  <select name="activity_id" id="activity">
+    {% for activity in activities %}
+    <option value=" {{ activity.id }} ">{{ activity.name }}</option>
+    {% endfor %}
+  </select>
+
+  <label for="date_of_class">Select date:</label>
+  <!-- replace this with date picker later -->
+  <input type="number" id="date_of_class" name="date_of_class" />
+
+  <label for="time">Select class start time:</label>
+  <input type="number" id="time_of_class" name="time_of_class" />
+
+  <label for="duration">Select length of class</label>
+  <select name="duration" id="duration">
+    <option value="60">60mins</option>
+    <option value="45">45min</option>
+    <option value="30">30mins</option>
+  </select>
+  <input class="btn" type="submit" value="Session" />
+</form>
+{% endblock content %}

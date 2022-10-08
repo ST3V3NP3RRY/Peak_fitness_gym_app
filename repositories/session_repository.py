@@ -8,14 +8,14 @@ import repositories.activity_repository as activity_repository
 
 
 def save(session):
-    sql = """INSERT INTO sessions ( member_id, activity_id, date, time, duration ) 
+    sql = """INSERT INTO sessions ( member_id, activity_id, date_of_class, time_of_class, duration ) 
     VALUES ( %s, %s, %s, %s, %s ) RETURNING id
     """
     values = [
         session.member.id,
         session.activity.id,
-        session.date,
-        session.time,
+        session.date_of_class,
+        session.time_of_class,
         session.duration,
     ]
     results = run_sql(sql, values)
@@ -36,10 +36,10 @@ def select_all():
         session = Session(
             member,
             activity,
-            results["date"],
-            results["time"],
-            results["duration"],
-            results["id"],
+            row[("date_of_class")],
+            row["time_of_class"],
+            row["duration"],
+            row["id"],
         )
         sessions.append(session)
     return sessions
@@ -61,7 +61,7 @@ def member(session):
     sql = "SELECT * FROM members WHERE id = %s"
     values = [session.member.id]
     results = run_sql(sql, values)[0]
-    member = Member(results["name"], results["id"])
+    member = Member(results["name"], results["age"], results["address"], results["id"])
     return member
 
 

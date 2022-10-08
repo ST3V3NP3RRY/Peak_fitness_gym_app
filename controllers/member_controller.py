@@ -26,6 +26,8 @@ def show(id):
 @member_blueprint.route("/members/index", methods=["POST"])
 def create_member():
     member_name = request.form["member_name"]
-    new_member = Member(member_name)
+    age = request.form["age"]
+    address = request.form["address"]
+    new_member = Member(member_name, age, address)
     member_repository.save(new_member)
     return redirect("/members/index")

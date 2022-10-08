@@ -15,13 +15,13 @@ session_repository.delete_all()
 activity_repository.delete_all()
 member_repository.delete_all()
 
-member1 = Member("Lucy Diamond")
+member1 = Member("Lucy Diamond", 45, "Carnaby Street")
 member_repository.save(member1)
 
-member2 = Member("Eleanor Rigby")
+member2 = Member("Eleanor Rigby", 19, "Liverpool Road")
 member_repository.save(member2)
 
-member3 = Member("Maxwell Edison")
+member3 = Member("Maxwell Edison", 24, "Wallaby Way")
 member_repository.save(member3)
 
 activity1 = Activity("Body Blast", "Aerobic")

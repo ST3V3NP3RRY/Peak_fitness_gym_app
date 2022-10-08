@@ -1,4 +1,22 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
 <h1>Sessions</h1>
+
+{% block content %}
+<ul>
+  {% for session in sessions %}
+
+  <li>
+    <p>{{ session.activity.id }}</p>
+
+    <p>Enrolled members: {{ session.member.name }}</p>
+
+    <p>Date: {{ session.date_of_class }}</p>
+    <p>Time: {{ session.time_of_class }}</p>
+    <p>Duration: {{ session.duration }}</p>
+  </li>
+
+  {% endfor %}
+</ul>
+<button class="btn"><a href="/sessions/new">New Session</a></button>
 
 {% endblock content %}

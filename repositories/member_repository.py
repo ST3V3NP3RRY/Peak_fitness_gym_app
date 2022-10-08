@@ -5,8 +5,10 @@ from models.member import Member
 
 # Save single member into database table members
 def save(member):
-    sql = "INSERT INTO members ( name ) VALUES ( %s ) RETURNING id"
-    values = [member.name]
+    sql = (
+        "INSERT INTO members ( name, age, address ) VALUES ( %s, %s, %s ) RETURNING id"
+    )
+    values = [member.name, member.age, member.address]
     results = run_sql(sql, values)
     member.id = results[0]["id"]
     return member
@@ -19,7 +21,7 @@ def select_all():
     sql = "SELECT * FROM members"
     results = run_sql(sql)
     for row in results:
-        member = Member(row["name"], row["id"])
+        member = Member(row["name"], row["age"], row["address"], row["id"])
         members.append(member)
     return members
 
@@ -32,7 +34,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        member = Member(result["name"], result["id"])
+        member = Member(result["name"], result["age"], result["address"], result["id"])
     return member
 
 
@@ -55,6 +57,6 @@ def activity(member):
     values = [member.id]
     results = run_sql(sql, values)
     for row in results:
-        member = Member(row["name"], row["id"])
+        member = Member(row["name"], row["age"], row["address"], row["id"])
         members.append(member)
     return member
