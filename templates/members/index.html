@@ -5,9 +5,10 @@
     <th>Name</th>
   </tr>
   {% for member in members %}
-  <tr>
+  <tr class="row_bgcolor">
     <td><a href="/members/{{ member.id }}"> {{ member.name }}</a></td>
   </tr>
   {% endfor %}
 </table>
+<button class="btn"><a href="/members/new">Add Member</a></button>
 {% endblock content %}

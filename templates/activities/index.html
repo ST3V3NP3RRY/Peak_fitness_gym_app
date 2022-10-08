@@ -5,12 +5,13 @@
     <th>Exercise type</th>
   </tr>
   {% for activity in activities %}
-  <tr>
+  <tr class="row_bgcolor">
     <td><a href="/activities/{{ activity.id }}"> {{ activity.name }} </a></td>
-    <td>{{ activity.title }}</td>
+    <td>{{ activity.title|title }}</td>
   </tr>
 
   {% endfor %}
 </table>
+<button class="btn"><a href="/activities/new">New Class</a></button>
 
 {% endblock content %}

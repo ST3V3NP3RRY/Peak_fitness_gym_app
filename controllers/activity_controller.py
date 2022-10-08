@@ -20,7 +20,7 @@ def new_activity():
 # make a new exercise activity
 @activity_blueprint.route("/activities/index", methods=["POST"])
 def create_activity():
-    name = request.form["name"]
+    name = request.form["class_name"]
     title = request.form["title"]
     activity = Activity(name, title)
     activity_repository.save(activity)
