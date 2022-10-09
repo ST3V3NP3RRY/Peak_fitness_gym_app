@@ -53,6 +53,7 @@ header > nav > ul > li {
 
 .flex-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 3rem;
 }
 

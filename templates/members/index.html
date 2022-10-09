@@ -8,7 +8,9 @@
   </tr>
   {% for member in members %}
   <tr class="row_bgcolor">
-    <td><a href="/members/{{ member.id }}"> {{ member.name }}</a></td>
+    <td>
+      <a href="/members/{{ member.id }}"> {{ member.name }}</a>
+    </td>
     <td>{{ member.age }}</td>
     <td>{{ member.address }}</td>
   </tr>

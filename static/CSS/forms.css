@@ -4,11 +4,19 @@ form {
 }
 
 input,
-select {
+select,
+number {
   display: block;
   margin: 0.5rem 0;
-  height: 2rem;
+  height: 3rem;
   border-radius: 0.5rem;
   padding-left: 0.5rem;
   width: 100%;
+}
+
+input[type="number"] {
+  height: 3rem;
+}
+option {
+  font-size: 2rem;
 }

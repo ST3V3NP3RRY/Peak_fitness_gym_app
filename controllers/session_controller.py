@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from datetime import datetime
 from models.session import Session
 from models.activity import Activity
 from models.member import Member
@@ -28,10 +29,24 @@ def new_session():
 @session_blueprint.route("/sessions/index", methods=["POST"])
 def create_session():
     member_id = request.form["member_id"]
-    activity_id = request.form["activity_id"]
-    date_of_class = request.form["date_of_class"]
-    time_of_class = request.form["time_of_class"]
+    member = member_repository.select(member_id)
+    activity = request.form["activity"]
+
+    date = request.form["date"]
+    split_date = date.split("-")
+    if date == "":
+        pass
+    else:
+        date = datetime.date(int(split_date[0]), int(split_date[1]), int(split_date[2]))
+
+    time = request.form["time"]
     duration = request.form["duration"]
-    session = Session(member_id, activity_id, date_of_class, time_of_class, duration)
+    session = Session(
+        member=member,
+        activity=activity,
+        date_of_class=date,
+        time_of_class=time,
+        duration=duration,
+    )
     session_repository.save(session)
     return redirect("/sessions/index")

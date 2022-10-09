@@ -9,6 +9,7 @@ from models.activity import Activity
 import repositories.activity_repository as activity_repository
 import repositories.member_repository as member_repository
 import repositories.session_repository as session_repository
+import datetime
 
 # Empty out data from db
 session_repository.delete_all()
@@ -33,19 +34,19 @@ activity_repository.save(activity2)
 activity3 = Activity("Lane swim", "Swimming")
 activity_repository.save(activity3)
 
-session1 = Session(member1, activity2, 2022107, 1400, 60)
+session1 = Session(member1, activity2, datetime.date(2022, 10, 7), 1400, 60)
 session_repository.save(session1)
 
-session2 = Session(member3, activity1, 2022107, 1800, 45)
+session2 = Session(member3, activity1, datetime.date(2022, 10, 9), 1800, 45)
 session_repository.save(session2)
 
-session3 = Session(member2, activity3, 2022107, 1000, 30)
+session3 = Session(member2, activity3, datetime.date(2022, 10, 10), 1000, 30)
 session_repository.save(session3)
 
-session4 = Session(member2, activity1, 2022109, 1730, 45)
+session4 = Session(member2, activity1, datetime.date(2022, 10, 7), 1730, 45)
 session_repository.save(session4)
 
-session1 = Session(member2, activity2, 2022107, 1400, 60)
+session1 = Session(member2, activity2, datetime.date(2022, 10, 7), 1400, 60)
 session_repository.save(session1)
 
 

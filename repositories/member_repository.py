@@ -46,7 +46,7 @@ def delete_all():
 
 # Activity(member)
 def activities(member):
-    members = []
+    activities = []
 
     sql = """
     SELECT activities.* FROM activities 
@@ -56,6 +56,6 @@ def activities(member):
     values = [member.id]
     results = run_sql(sql, values)
     for row in results:
-        member = Member(row["name"], row["age"], row["address"], row["id"])
-        members.append(member)
-    return members
+        activity = Activity(row["name"], row["title"], row["id"])
+        activities.append(activity)
+    return activities
