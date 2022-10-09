@@ -44,6 +44,13 @@ def delete_all():
     run_sql(sql)
 
 
+# Update member
+def update(member):
+    sql = "UPDATE members SET ( name, age, address ) = ( %s, %s, %s ) WHERE id = %s"
+    values = [member.name, member.age, member.address, member.id]
+    run_sql(sql, values)
+
+
 # Activity(member)
 def activities(member):
     activities = []

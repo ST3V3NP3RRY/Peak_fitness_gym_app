@@ -50,7 +50,7 @@ def activity(session):
     sql = "SELECT * FROM activities WHERE id = %s"
     values = [
         session.activity.id
-    ]  # Get the first instance where the value match is that why below is 0?
+    ]
     results = run_sql(sql, values)[0]
     activity = Activity(results["name"], results["title"], results["id"])
     return activity
