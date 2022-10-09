@@ -17,7 +17,7 @@ def sessions():
     return render_template("sessions/index.html", sessions=sessions)
 
 
-# Make a new session
+# Route to form for making new session
 @session_blueprint.route("/sessions/new", methods=["GET"])
 def new_session():
     members = member_repository.select_all()

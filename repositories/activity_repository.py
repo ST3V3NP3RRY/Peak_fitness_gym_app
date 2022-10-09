@@ -63,6 +63,15 @@ def members(activity):
     return members
 
 
+def update(activity):
+    sql = """
+    UPDATE activities SET (name, start_time, duration, id) = ( %s, %s, %s, %s ) WHERE id = %s"
+    """
+    values = [activity.name, activity.start_time, activity.duration, activity.id]
+
+    run_sql(sql, values)
+
+
 def delete_all():
     sql = "DELETE FROM activities"
     run_sql(sql)

@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+<h1>{{ activities.name }}</h1>
+<p>Start Time: {{ activities.start_time }}</p>
+<p>Duration: {{ activities.duration }}</p>
+
+<h3>Enrolled members:</h3>
+
+  {% for member in members %}
+    {{ member.name }}
+
+  {% endfor %}
+
+
+
+  <p><a class="btn" href="/activities/{{ activities.id }}/update">Update</a></p>
+</ul>
+
+{% endblock content %}

@@ -11,11 +11,12 @@
   <tr class="row_bgcolor">
     <td><a href="/activities/{{ activity.id }}"> {{ activity.name }} </a></td>
     <td>{{ activity.start_time }}</td>
-    <td>{{ activity.duration }}</td>
+    <td>{{ activity.duration }} min</td>
   </tr>
 
   {% endfor %}
 </table>
 <button class="btn"><a href="/activities/new">New Class</a></button>
+<button class="btn"><a href="/activities/edit">Edit Class</a></button>
 
 {% endblock content %}
