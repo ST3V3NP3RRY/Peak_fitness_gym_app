@@ -47,7 +47,7 @@ def edit_activity():
 
 
 # Update activity
-@activity_blueprint.route("/activities/<id>/", methods=["POST"])
+@activity_blueprint.route("/activities/<id>", methods=["POST"])
 def update_activity(id):
     activity_name = request.form["activity_name"]
     start_time = request.form["start_time"]

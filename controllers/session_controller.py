@@ -17,6 +17,7 @@ def sessions():
     return render_template("sessions/index.html", sessions=sessions)
 
 
+# GET
 # Route to form for making new session
 @session_blueprint.route("/sessions/new", methods=["GET"])
 def new_session():
@@ -29,13 +30,17 @@ def new_session():
 @session_blueprint.route("/sessions/index", methods=["POST"])
 def create_session():
     member_id = request.form["member_id"]
-    member = member_repository.select(member_id)
-
     activity_id = request.form["activity_id"]
+    member = member_repository.select(member_id)
     activity = activity_repository.select(activity_id)
-
     date = request.form["date"]
-
     session = Session(member=member, activity=activity, date=date)
     session_repository.save(session)
+    return redirect("/sessions/index")
+
+
+# Delete a Session
+@session_blueprint.route("/sessions/<id>/delete", methods=["POST"])
+def delete_session(id):
+    session_repository.delete(id)
     return redirect("/sessions/index")

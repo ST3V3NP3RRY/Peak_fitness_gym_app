@@ -43,7 +43,6 @@ def activity(session):
     return activity
 
 
-# def member(session):
 def member(session):
     sql = "SELECT * FROM members WHERE id = %s"
     values = [session.member.id]

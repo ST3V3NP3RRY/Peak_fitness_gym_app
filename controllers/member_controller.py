@@ -18,7 +18,7 @@ def new_member():
     return render_template("/members/new.html")
 
 
-# Show member
+# Show user
 @member_blueprint.route("/members/<id>", methods=["GET"])
 def show(id):
     members = member_repository.select(id)
