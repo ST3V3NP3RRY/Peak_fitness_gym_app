@@ -12,14 +12,13 @@ CREATE TABLE members (
 CREATE TABLE activities (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    title VARCHAR(255)
+    start_time INT,
+    duration INT
 );
 
 CREATE TABLE sessions (
 id SERIAL PRIMARY KEY,
 member_id INT REFERENCES members(id) ON DELETE CASCADE,
 activity_id INT REFERENCES activities(id) ON DELETE CASCADE,
-date_of_class DATE, --Change this to date later int just placeholder to get things working
-time_of_class INT,
-duration INT
+date DATE --Change this to date later int just placeholder to get things working
 );

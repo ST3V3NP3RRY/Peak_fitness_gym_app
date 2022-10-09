@@ -25,28 +25,28 @@ member_repository.save(member2)
 member3 = Member("Maxwell Edison", 24, "Wallaby Way")
 member_repository.save(member3)
 
-activity1 = Activity("Body Blast", "Aerobic")
+activity1 = Activity("Aerobics", 1400, 45)
 activity_repository.save(activity1)
 
-activity2 = Activity("Spin Attack", "Cycling")
+activity2 = Activity("Spin Class", 1330, 30)
 activity_repository.save(activity2)
 
-activity3 = Activity("Lane swim", "Swimming")
+activity3 = Activity("Gym Session", 1000, 45)
 activity_repository.save(activity3)
 
-session1 = Session(member1, activity2, datetime.date(2022, 10, 7), 1400, 60)
+session1 = Session(member1, activity2, datetime.date(2022, 10, 7))
 session_repository.save(session1)
 
-session2 = Session(member3, activity1, datetime.date(2022, 10, 9), 1800, 45)
+session2 = Session(member3, activity1, datetime.date(2022, 10, 9))
 session_repository.save(session2)
 
-session3 = Session(member2, activity3, datetime.date(2022, 10, 10), 1000, 30)
+session3 = Session(member2, activity3, datetime.date(2022, 10, 10))
 session_repository.save(session3)
 
-session4 = Session(member2, activity1, datetime.date(2022, 10, 7), 1730, 45)
+session4 = Session(member2, activity1, datetime.date(2022, 10, 7))
 session_repository.save(session4)
 
-session1 = Session(member2, activity2, datetime.date(2022, 10, 7), 1400, 60)
+session1 = Session(member2, activity2, datetime.date(2022, 10, 7))
 session_repository.save(session1)
 
 

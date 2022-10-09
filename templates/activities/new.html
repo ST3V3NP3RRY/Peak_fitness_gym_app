@@ -1,26 +1,25 @@
 {% extends 'base.html' %} {% block content %}
 <form action="/activities/index" method="post">
   <div>
-    <label for="class_name">Class Name</label>
+    <label for="activity_name">Activity:</label>
     <input
       type="text"
-      id="class_name"
-      name="class_name"
-      placeholder="Class Name"
+      id="activity_name"
+      name="activity_name"
+      placeholder="Name of Activity"
       required
       autofocus
     />
   </div>
 
   <div>
-    <label for="title">Exercise Type</label>
-    <input
-      type="text"
-      id="title"
-      name="title"
-      placeholder="Exercise type"
-      required
-    />
+    <label for="time">Start Time:</label>
+    <input type="number" id="time" name="start_time" required />
+  </div>
+
+  <div>
+    <label for="duration">Length of activity:</label>
+    <input type="number" id="duration" name="duration" required />
   </div>
 
   <button class="btn" type="submit">Add Class</button>

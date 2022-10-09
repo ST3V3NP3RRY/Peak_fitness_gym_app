@@ -4,11 +4,11 @@
 <ul class="flex-row">
   {% for session in sessions %}
   <li>
-    <p>{{ session.activity.name }} | {{ session.activity.title }}</p>
+    <p>{{ session.member.name }}</p>
+    <p>{{ session.activity.name }} | {{ session.activity.start_time }}</p>
 
-    <p>Date: {{ session.date_of_class }}</p>
-    <p>Time: {{ session.time_of_class }}</p>
-    <p>Duration: {{ session.duration }}</p>
+    <p>Date: {{ session.date }}</p>
+
     <hr />
   </li>
   {% endfor %}

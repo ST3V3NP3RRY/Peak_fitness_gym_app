@@ -4,12 +4,14 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Exercise type</th>
+    <th>Start Time</th>
+    <th>Duration</th>
   </tr>
   {% for activity in activities %}
   <tr class="row_bgcolor">
     <td><a href="/activities/{{ activity.id }}"> {{ activity.name }} </a></td>
-    <td>{{ activity.title|title }}</td>
+    <td>{{ activity.start_time }}</td>
+    <td>{{ activity.duration }}</td>
   </tr>
 
   {% endfor %}

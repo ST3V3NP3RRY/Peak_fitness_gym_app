@@ -30,23 +30,12 @@ def new_session():
 def create_session():
     member_id = request.form["member_id"]
     member = member_repository.select(member_id)
-    activity = request.form["activity"]
+
+    activity_id = request.form["activity_id"]
+    activity = activity_repository.select(activity_id)
 
     date = request.form["date"]
-    split_date = date.split("-")
-    if date == "":
-        pass
-    else:
-        date = datetime.date(int(split_date[0]), int(split_date[1]), int(split_date[2]))
 
-    time = request.form["time"]
-    duration = request.form["duration"]
-    session = Session(
-        member=member,
-        activity=activity,
-        date_of_class=date,
-        time_of_class=time,
-        duration=duration,
-    )
+    session = Session(member=member, activity=activity, date=date)
     session_repository.save(session)
     return redirect("/sessions/index")

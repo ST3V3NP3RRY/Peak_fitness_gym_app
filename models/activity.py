@@ -1,5 +1,6 @@
 class Activity:
-    def __init__(self, name, title, id=None):
+    def __init__(self, name, start_time, duration, id=None):
         self.name = name
-        self.title = title
+        self.start_time = start_time
+        self.duration = duration
         self.id = id

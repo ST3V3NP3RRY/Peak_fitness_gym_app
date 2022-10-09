@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <h1>Add New Session</h1>
 
-<form action="/sessions/index" methods="post">
+<form action="/sessions/index" method="post">
   <label for="member_id">Select Member:</label>
   <select name="member_id" id="member_id">
     {% for member in members %}
@@ -9,8 +9,8 @@
     {% endfor %}
   </select>
 
-  <label for="activity">Select an activity:</label>
-  <select name="activity" id="activity">
+  <label for="activity_id">Select an activity:</label>
+  <select name="activity_id" id="activity">
     {% for activity in activities %}
     <option value=" {{ activity.id }} ">{{ activity.name }}</option>
     {% endfor %}
@@ -18,16 +18,6 @@
 
   <label for="date">Select date:</label>
   <input type="date" id="date" name="date" />
-
-  <label for="time">Select class start time:</label>
-  <input type="number" id="time" name="time" />
-
-  <label for="duration">Select length of class</label>
-  <select name="duration" id="duration">
-    <option value="60">60mins</option>
-    <option value="45">45min</option>
-    <option value="30">30mins</option>
-  </select>
 
   <input class="btn" type="submit" value="New Session" />
 </form>

@@ -8,16 +8,10 @@ import repositories.activity_repository as activity_repository
 
 
 def save(session):
-    sql = """INSERT INTO sessions ( member_id, activity_id, date_of_class, time_of_class, duration ) 
-    VALUES ( %s, %s, %s, %s, %s ) RETURNING id
+    sql = """INSERT INTO sessions ( member_id, activity_id, date ) 
+    VALUES ( %s, %s, %s ) RETURNING id
     """
-    values = [
-        session.member.id,
-        session.activity.id,
-        session.date_of_class,
-        session.time_of_class,
-        session.duration,
-    ]
+    values = [session.member.id, session.activity.id, session.date]
     results = run_sql(sql, values)
     session.id = results[0]["id"]
     return session
@@ -29,18 +23,11 @@ def select_all():
 
     sql = "SELECT * FROM sessions"
     results = run_sql(sql)
-    # Results return a list of dictionary like objects?
-    for row in results:  # loop through the results list
+
+    for row in results:
         member = member_repository.select(row["member_id"])
         activity = activity_repository.select(row["activity_id"])
-        session = Session(
-            member,
-            activity,
-            row[("date_of_class")],
-            row["time_of_class"],
-            row["duration"],
-            row["id"],
-        )
+        session = Session(member, activity, row[("date")], row["id"])
         sessions.append(session)
     return sessions
 
@@ -48,11 +35,11 @@ def select_all():
 # def activity(session):
 def activity(session):
     sql = "SELECT * FROM activities WHERE id = %s"
-    values = [
-        session.activity.id
-    ]
+    values = [session.activity.id]
     results = run_sql(sql, values)[0]
-    activity = Activity(results["name"], results["title"], results["id"])
+    activity = Activity(
+        results["name"], results["start_time"], results["duration"], results["id"]
+    )
     return activity
 
 
