@@ -6,19 +6,30 @@ import repositories.member_repository as member_repository
 
 activity_blueprint = Blueprint("activity", __name__)
 
-
+# Display all activities ------------------------------------
 @activity_blueprint.route("/activities/index")
 def activity():
     activities = activity_repository.select_all()
     return render_template("activities/index.html", activities=activities)
 
 
+# Show form to create new activity --------------------------
 @activity_blueprint.route("/activities/new", methods=["GET"])
 def new_activity():
     return render_template("/activities/new.html")
 
 
-# make a new exercise activity
+# Show activity ---------------------------------------------
+@activity_blueprint.route("/activities/<id>", methods=["GET"])
+def show(id):
+    activities = activity_repository.select(id)
+    members = activity_repository.members(activities)
+    return render_template(
+        "/activities/show.html", members=members, activities=activities
+    )
+
+
+# Create a new activity ------------------------------------
 @activity_blueprint.route("/activities/index", methods=["POST"])
 def create_activity():
     activity_name = request.form["activity_name"]
@@ -27,16 +38,6 @@ def create_activity():
     activity = Activity(activity_name, start_time, duration)
     activity_repository.save(activity)
     return redirect("/activities/index")
-
-
-# Show activity
-@activity_blueprint.route("/activities/<id>", methods=["GET"])
-def show(id):
-    activities = activity_repository.select(id)
-    members = activity_repository.members(activities)
-    return render_template(
-        "/activities/show.html", members=members, activities=activities
-    )
 
 
 # Redirect to edit page to update activity

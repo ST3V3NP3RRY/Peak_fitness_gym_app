@@ -6,19 +6,20 @@ import repositories.activity_repository as activity_repository
 
 member_blueprint = Blueprint("members", __name__)
 
-
+# Display all members
 @member_blueprint.route("/members/index")
 def members():
     members = member_repository.select_all()
     return render_template("members/index.html", members=members)
 
 
+# Show form to create new member
 @member_blueprint.route("/members/new", methods=["GET"])
 def new_member():
     return render_template("/members/new.html")
 
 
-# Show user
+# Show member ------------------------------------------
 @member_blueprint.route("/members/<id>", methods=["GET"])
 def show(id):
     members = member_repository.select(id)

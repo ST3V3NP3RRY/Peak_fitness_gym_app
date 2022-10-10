@@ -37,7 +37,12 @@
         </ul>
       </nav>
     </header>
-    <div class="container">{% block content %} {% endblock content %}</div>
+    <div class="container">
+      {% block content %}
+
+      <p>The date and time is: {{ date_time }}</p>
+      {% endblock content %}
+    </div>
     <footer>
       <p>Copyright &copy; 2022</p>
     </footer>
