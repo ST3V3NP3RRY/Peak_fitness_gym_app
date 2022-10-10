@@ -40,11 +40,11 @@ def create_activity():
     return redirect("/activities/index")
 
 
-# Redirect to edit page to update activity
-@activity_blueprint.route("/activities/edit", methods=["GET"])
-def edit_activity():
-    activities = activity_repository.select_all()
-    return render_template("/activities/edit.html", activities=activities)
+# Edit activity
+@activity_blueprint.route("/activities/<id>/edit")
+def edit_activity(id):
+    activity = activity_repository.select(id)
+    return render_template("/activities/edit.html", activity=activity)
 
 
 # Update activity
