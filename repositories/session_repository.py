@@ -46,8 +46,8 @@ def activity(session):
 def member(session):
     sql = "SELECT * FROM members WHERE id = %s"
     values = [session.member.id]
-    results = run_sql(sql, values)[0]
-    member = Member(results["name"], results["age"], results["address"], results["id"])
+    result = run_sql(sql, values)[0]
+    member = Member(result["name"], result["age"], result["address"], result["id"])
     return member
 
 

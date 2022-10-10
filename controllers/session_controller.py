@@ -14,7 +14,16 @@ session_blueprint = Blueprint("sessions", __name__)
 @session_blueprint.route("/sessions/index")
 def sessions():
     sessions = session_repository.select_all()
-    return render_template("sessions/index.html", sessions=sessions)
+    # all_members = member_repository.select_all()
+    # activities = activity_repository.select_all()
+    activity_members = activity_repository.members
+    return render_template(
+        "sessions/index.html",
+        sessions=sessions,
+        # members=all_members,
+        # activities=activities,
+        activity_members=activity_members,
+    )
 
 
 # GET

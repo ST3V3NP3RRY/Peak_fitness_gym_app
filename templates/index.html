@@ -1,4 +1,9 @@
 {% extends 'base.html' %} {% block content %}
-<p class="date_time">Today is {{ date }}, the time is {{ current_time }}</p>
-<h1>Home page</h1>
+<div class="page_container">
+  <div class="content_wrapper">
+    <p class="date_time">Today is {{ date }}</p>
+    <p class="date_time">The time is {{ current_time }}</p>
+    <h1>Home page</h1>
+  </div>
+</div>
 {% endblock content %}

@@ -45,19 +45,18 @@ def select(id):
 def members(activity):
     members = []
 
-    # 1. SELECT all columns from the members table
-
     sql = """
     SELECT members.* FROM members 
     INNER JOIN sessions 
-    ON sessions.member_id = member.id 
+    ON sessions.member_id = members.id 
     WHERE activity_id = %s
     """
     values = [activity.id]
     results = run_sql(sql, values)
 
     for row in results:
-        member = Member(row["name"], row["start_time"], row["duration"], row["id"])
+
+        member = Member(row["name"], row["age"], row["address"], row["id"])
         members.append(member)
 
     return members
@@ -65,7 +64,7 @@ def members(activity):
 
 def update(activity):
     sql = """
-    UPDATE activities SET (name, start_time, duration, id) = ( %s, %s, %s, %s ) WHERE id = %s"
+    UPDATE activities SET (name, start_time, duration ) = ( %s, %s, %s ) WHERE id = %s
     """
     values = [activity.name, activity.start_time, activity.duration, activity.id]
 

@@ -22,11 +22,9 @@ def new_activity():
 # Show activity ---------------------------------------------
 @activity_blueprint.route("/activities/<id>", methods=["GET"])
 def show(id):
-    activities = activity_repository.select(id)
-    members = activity_repository.members(activities)
-    return render_template(
-        "/activities/show.html", members=members, activities=activities
-    )
+    activity = activity_repository.select(id)
+    members = activity_repository.members(activity)
+    return render_template("activities/show.html", members=members, activity=activity)
 
 
 # Create a new activity ------------------------------------
@@ -40,14 +38,14 @@ def create_activity():
     return redirect("/activities/index")
 
 
-# Edit activity
+# Edit activity ---------------------------------------------------
 @activity_blueprint.route("/activities/<id>/edit")
 def edit_activity(id):
     activity = activity_repository.select(id)
     return render_template("/activities/edit.html", activity=activity)
 
 
-# Update activity
+# Update activity ------------------------------------------------------
 @activity_blueprint.route("/activities/<id>", methods=["POST"])
 def update_activity(id):
     activity_name = request.form["activity_name"]

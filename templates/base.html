@@ -38,10 +38,11 @@
       </nav>
     </header>
     <div class="container">
-      {% block content %}
-
-      <p>The date and time is: {{ date_time }}</p>
-      {% endblock content %}
+      <div class="page_container">
+        <div class="content_wrapper">
+          {% block content %} {% endblock content %}
+        </div>
+      </div>
     </div>
     <footer>
       <p>Copyright &copy; 2022</p>

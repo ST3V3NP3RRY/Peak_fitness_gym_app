@@ -1,17 +1,29 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Sessions</h1>
-<ul class="flex-row">
-  {% for session in sessions %}
-  <li>
-    <p>{{ session.member.name }}</p>
-    <p>{{ session.activity.name }} | {{ session.activity.start_time }}</p>
+<h2>Sessions</h2>
 
-    <p>Date: {{ session.date }}</p>
+<div class="flex-row">
+  {% set ns = namespace(reference_session = None) %} {% for session in sessions
+  %} {% if reference_session == None or ns.reference_session.date !=
+  session.date or ns.reference_session.activity.name != session.activity.name or
+  ns.reference_session.activity.start_time != session.activity.start_time %}
+
+  <div class="session">
+    <h3>Date: {{ session.date }}</h3>
     <hr />
-  </li>
-  {% endfor %}
-</ul>
+    <p>Activity: {{ session.activity.name }}</p>
+    <p>Time: {{ session.activity.start_time }}</p>
+    <hr />
+    <h4>
+      Members: {% for member in activity_members(session.activity) %}
+      <p>{{ member.name }}</p>
+      {% endfor %}
+    </h4>
+  </div>
+
+  {% endif %} {% set ns.reference_session = session %} {% endfor %}
+</div>
+
 <button class="btn"><a href="/sessions/new">New Session</a></button>
 
 {% endblock content %}

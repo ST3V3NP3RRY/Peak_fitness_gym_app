@@ -1,38 +1,35 @@
 {% extends 'base.html' %} {% block content %}
-<form action="/activities/index" method="post">
+<form action="/activities/{{activity.id}}" method="post">
   <div>
     <label for="activity_name">Activity:</label>
     <input
-        type="text"
-        id="activity_name"
-        name="activity_name"
-        value="{{ activity.name }}"
-      />
-    
-      
+      type="text"
+      id="activity_name"
+      name="activity_name"
+      value="{{ activity.name }}"
+    />
   </div>
 
-    <div>
-      <label for="start_time">Start:</label>
-      <input
-        type="number"
-        id="start_time"
-        name="start_time"
-        value="{{ activity.start_time }}"
-      />
-    </div>
+  <div>
+    <label for="start_time">Start:</label>
+    <input
+      type="number"
+      id="start_time"
+      name="start_time"
+      value="{{ activity.start_time }}"
+    />
+  </div>
 
-    <div>
-      <label for="duration">Duration:</label>
-      <input
-        type="number"
-        id="duration"
-        name="duration"
-        value="{{ activity.duration }}"
-      />
-    </div>
+  <div>
+    <label for="duration">Duration:</label>
+    <input
+      type="number"
+      id="duration"
+      name="duration"
+      value="{{ activity.duration }}"
+    />
+  </div>
 
-    <button class="btn" type="submit">Update</button>
-  </form>
-  {% endblock content %}
+  <button class="btn" type="submit">Update</button>
 </form>
+{% endblock content %}

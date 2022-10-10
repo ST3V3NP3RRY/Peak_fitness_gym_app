@@ -3,3 +3,4 @@ class Session:
         self.member = member
         self.activity = activity
         self.date = date
+        self.id = id

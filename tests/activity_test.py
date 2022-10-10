@@ -5,13 +5,13 @@ from models.activity import Activity
 class TestActivity(unittest.TestCase):
     def setUp(self):
 
-        self.activity = Activity("Aerobics", "Body Pump", 1)
+        self.activity = Activity("Aerobics", "1200", 1)
 
-    def Test_activity_has_name(self):
+    def test_activity_has_name(self):
         self.assertEqual("Aerobics", self.activity.name)
 
-    def Test_activity_has_title(self):
-        self.assertEqual("Body Pump", self.activity.title)
+    def test_activity_has_start_time(self):
+        self.assertEqual("1200", self.activity.start_time)
 
-    def Test_activity_has_id(self):
+    def test_activity_has_id(self):
         self.assertEqual(1, self.activity.id)

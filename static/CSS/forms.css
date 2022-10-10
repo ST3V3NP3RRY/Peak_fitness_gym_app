@@ -1,21 +1,27 @@
 form {
   border: 1px solid black;
   padding: 2rem;
+  width: 80%;
+  max-width: 40rem;
+  border-radius: 2rem;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 input,
 select,
 number {
   display: block;
-  margin: 0.5rem 0;
-  height: 3rem;
+  margin: 1rem 0;
+  height: 4rem;
   border-radius: 0.5rem;
   padding-left: 0.5rem;
   width: 100%;
 }
 
 input[type="number"] {
-  height: 3rem;
+  height: 4rem;
 }
 option {
   font-size: 2rem;
