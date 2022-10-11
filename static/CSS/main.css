@@ -125,14 +125,44 @@ hr {
   flex: 0 0 auto;
   padding: 2rem;
   width: 24rem;
+  line-height: 3rem;
+}
+
+.box_styling {
+  padding: 2rem;
+  border: 1px solid red;
+  border-radius: 2rem;
+  line-height: 3rem;
   background-color: white;
   border-radius: 1.5rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
+.member_name {
+  color: rgb(79, 79, 79);
+}
+
+.member_info {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 3rem;
+  padding: 2rem;
+}
+
+.member_profile {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
+
 .date_time {
   font-size: 4rem;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(43, 19, 12, 0.42);
 }
 
 footer {

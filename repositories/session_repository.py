@@ -43,12 +43,22 @@ def activity(session):
     return activity
 
 
+# Activity Session
 def member(session):
     sql = "SELECT * FROM members WHERE id = %s"
     values = [session.member.id]
     result = run_sql(sql, values)[0]
     member = Member(result["name"], result["age"], result["address"], result["id"])
     return member
+
+
+# Update member
+def update(session):
+    sql = """UPDATE sessions 
+    SET ( member, activity, date ) = ( %s, %s, %s ) WHERE id = %s
+    """
+    values = [session.member, session.activity, session.date, session.id]
+    run_sql(sql, values)
 
 
 def delete_all():

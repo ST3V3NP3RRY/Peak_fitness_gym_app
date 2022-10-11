@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+
 <h1>{{ activity.name }}</h1>
 <p>Start Time: {{ activity.start_time }}</p>
 <p>Duration: {{ activity.duration }}</p>
@@ -6,12 +7,10 @@
 <h3>Enrolled members:</h3>
 <ul>
   {% for member in members %}
-    <li>{{ member.name }} {{ activity.start_time }}</li>
+  <li>{{ member.name }} {{ activity.start_time }}</li>
   {% endfor %}
 </ul>
 
-
-  <p><a class="btn" href="/activities/{{ activity.id }}/edit">Edit</a></p>
-</ul>
+<p><a class="btn" href="/activities/{{ activity.id }}/edit">Edit</a></p>
 
 {% endblock content %}

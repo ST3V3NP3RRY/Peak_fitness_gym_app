@@ -1,14 +1,22 @@
 {% extends 'base.html' %} {% block content %}
-<h1>{{ members.name }}</h1>
-<p>Age: {{ members.age }}</p>
-<p>Address: {{ members.address }}</p>
+<div class="member_info box_styling">
+  <img
+    class="member_profile"
+    src="/static/images/profile_placeholder.png"
+    alt=""
+  />
+  <h3>{{ members.name }}</h3>
+  <h4>Contact information:</h4>
+  <p>Age: {{ members.age }}</p>
+  <p>Address: {{ members.address }}</p>
 
-<h3>Enrolled classes:</h3>
+  <h4>Enrolled classes:</h4>
 
-<ul>
-  {% for activity in activities %}
-  <li>{{ activity.name }} | {{ activity.start_time }}</li>
-  {% endfor %}
-</ul>
+  <ul>
+    {% for activity in activities %}
+    <li>{{ activity.name }} | {{ activity.start_time }}</li>
+    {% endfor %}
+  </ul>
+</div>
 
 {% endblock content %}
