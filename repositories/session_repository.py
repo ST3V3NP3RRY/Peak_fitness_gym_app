@@ -29,13 +29,6 @@ def select_all():
     return sessions
 
 
-# Return a list of members associated with a session.
-def activities(session):
-    activities = []
-    sql = "SELECT * FROM activities WHERE activity_id = %s"
-    values = [session.id]
-
-
 # Select(id)
 def select(id):
     session = None
@@ -49,7 +42,6 @@ def select(id):
     return session
 
 
-# Switch round
 def activity(session):
     sql = "SELECT * FROM activities WHERE id = %s"
     values = [session.activity.id]

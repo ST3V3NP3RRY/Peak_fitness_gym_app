@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>Upcoming Sessions</h2>
+
+<div class="flex-row">
+ 
+{% for booking in bookings %}
+  <div class="session box_styling">
+
+    <h4>Class description:</h4>
+    <p>{{ booking.session.activity.name }}</p>
+    <hr />
+    <h4></i>Start Time:</h4>
+    <p>{{ booking.session.time }}</p>
+    <hr />
+    <h4>Enrolled Members:</h4>
+    <p class="member_name"></p>{{ booking.member.name }}</p>
+  </div>
+  {% endfor %}
+
+</div>
+
+<button class="btn"><a href="/bookings/new">New Session</a></button>
+
+{% endblock content %}

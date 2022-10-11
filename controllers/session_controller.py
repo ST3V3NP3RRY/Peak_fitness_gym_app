@@ -14,29 +14,30 @@ session_blueprint = Blueprint("sessions", __name__)
 
 @session_blueprint.route("/sessions/index")
 def sessions():
-    # bookings = booking_repository.select_all()
-    return render_template("sessions/index.html")
+    sessions = session_repository.select_all()
+    return render_template("sessions/index.html", sessions=sessions)
 
 
 # GET
 # Route to form for making new session
 @session_blueprint.route("/sessions/new", methods=["GET"])
 def new_session():
-    members = member_repository.select_all()
-    activities = activity_repository.select_all()
-    return render_template("sessions/new.html", members=members, activities=activities)
+    return render_template("sessions/new.html")
 
 
 # Create a New session
 @session_blueprint.route("/sessions/index", methods=["POST"])
 def create_session():
-    member_id = request.form["member_id"]
-    activity_id = request.form["activity_id"]
-    member = member_repository.select(member_id)
-    activity = activity_repository.select(activity_id)
-    date = request.form["date"]
-    session = Session(member=member, activity=activity, date=date)
-    session_repository.save(session)
+    pass
+    start_time = request.form["start_time"]
+    duration = request.form["duration"]
+    # activity = 
+
+    
+
+    # How can I get the activity to make a new session
+    new_session = Session(start_time, duration, activity)
+    session_repository.save(new_session)
     return redirect("/sessions/index")
 
 

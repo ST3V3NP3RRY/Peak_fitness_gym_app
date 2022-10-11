@@ -54,16 +54,16 @@ activity3 = Activity("Keep fit")
 activity_repository.save(activity3)
 
 activity4 = Activity("Gymnastics")
-activity_repository.save(activity1)
+activity_repository.save(activity4)
 
 activity5 = Activity("Swimming")
-activity_repository.save(activity2)
+activity_repository.save(activity5)
 
 activity6 = Activity("Grit Cardio")
-activity_repository.save(activity3)
+activity_repository.save(activity6)
 
 activity7 = Activity("Gym Circuits")
-activity_repository.save(activity1)
+activity_repository.save(activity7)
 
 # -------------
 # SESSIONS
@@ -112,10 +112,18 @@ booking_repository.save(booking1)
 booking3 = Booking(member2, session1)
 booking_repository.save(booking3)
 
-all_bookings = booking_repository.select_all()
 
+# WORKING
+# all_activities = activity_repository.select_all()
+# for activity in all_activities:
+#     print(activity.name)
+
+# WORKING
+# all_members = member_repository.select_all()
+# for member in all_members:
+#     print(member.name)
 
 all_sessions = session_repository.select_all()
 
 for session in all_sessions:
-    print(session.activity)
+    print(session.activity.name)

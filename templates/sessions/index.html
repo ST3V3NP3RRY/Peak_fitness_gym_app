@@ -1,25 +1,21 @@
 {% extends 'base.html' %} {% block content %}
 
-<h2>Upcoming Sessions</h2>
+<h2>Sessions</h2>
+<table class="box_styling">
+  <tr>
+    <th>Name</th>
+    <th>Start Time</th>
+    <th>Duration</th>
+  </tr>
+  {% for session in sessions %}
+  <tr class="row_bgcolor">
+    <td>{{ session.activity.name }}</td>
+    <td>{{ session.time }}</td>
+    <td>{{ session.duration }} min</td>
+  </tr>
 
-<div class="flex-row">
- 
-{% for booking in bookings %}
-  <div class="session box_styling">
-
-    <h4>Class description:</h4>
-    <p>{{ booking.session.activity.name }}</p>
-    <hr />
-    <h4></i>Start Time:</h4>
-    <p>{{ booking.session.time }}</p>
-    <hr />
-    <h4>Enrolled Members:</h4>
-    <p class="member_name"></p>{{ booking.member.name }}</p>
-  </div>
   {% endfor %}
-
-</div>
-
+</table>
 <button class="btn"><a href="/sessions/new">New Session</a></button>
 
 {% endblock content %}

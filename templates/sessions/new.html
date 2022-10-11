@@ -1,51 +1,28 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Add New Session</h1>
+<form class="box_styling" action="/sessions/index" method="post">
+  <div>
+    <label for="session_name">Session Name:</label>
+    <input
+      type="text"
+      id="session_name"
+      name="session_name"
+      placeholder="Enter the Name of then Class"
+      required
+      autofocus
+    />
+  </div>
 
-<form action="/sessions/index" method="post">
-  <label for="member_id">Select Member:</label>
-  <select name="member_id" id="member_id">
-    {% for member in members %}
-    <option value="{{ member.id }}">{{ member.name }}</option>
-    {% endfor %}
-  </select>
+  <div>
+    <label for="start_time">Start Time:</label>
+    <input type="number" id="stat_time" name="start_time" required />
+  </div>
 
-  <label for="activity_id">Select an activity:</label>
-  <select name="activity_id" id="activity">
-    {% for activity in activities %}
-    <option value=" {{ activity.id }} ">{{ activity.name }}</option>
-    {% endfor %}
-  </select>
+  <div>
+    <label for="duration">Length of session:</label>
+    <input type="number" id="duration" name="duration" required />
+  </div>
 
-  <label for="date">Select date:</label>
-  <input type="date" id="date" name="date" />
-
-  <!-- <label for="time">Select time:</label>
-  <input type="time" id="time" name="time" /> -->
-
-  <input class="btn" type="submit" value="New Session" />
+  <input class="btn" type="submit" value="Update" />
 </form>
 
-<form action="/sessions/index" method="post">
-  <label for="member_id">Select Member:</label>
-  <select name="member_id" id="member_id">
-    {% for member in members %}
-    <option value="{{ member.id }}">{{ member.name }}</option>
-    {% endfor %}
-  </select>
-
-  <label for="activity_id">Select an activity:</label>
-  <select name="activity_id" id="activity">
-    {% for activity in activities %}
-    <option value=" {{ activity.id }} ">{{ activity.name }}</option>
-    {% endfor %}
-  </select>
-
-  <label for="date">Select date:</label>
-  <input type="date" id="date" name="date" />
-
-  <!-- <label for="time">Select time:</label>
-  <input type="time" id="time" name="time" /> -->
-
-  <input class="btn" type="submit" value="Update Session" />
-</form>
 {% endblock content %}
