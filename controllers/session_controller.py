@@ -7,23 +7,15 @@ from models.member import Member
 import repositories.session_repository as session_repository
 import repositories.activity_repository as activity_repository
 import repositories.member_repository as member_repository
+import repositories.booking_repository as booking_repository
 
 session_blueprint = Blueprint("sessions", __name__)
 
 
 @session_blueprint.route("/sessions/index")
 def sessions():
-    sessions = session_repository.select_all()
-    # all_members = member_repository.select_all()
-    # activities = activity_repository.select_all()
-    activity_members = activity_repository.members
-    return render_template(
-        "sessions/index.html",
-        sessions=sessions,
-        # members=all_members,
-        # activities=activities,
-        activity_members=activity_members,
-    )
+    # bookings = booking_repository.select_all()
+    return render_template("sessions/index.html")
 
 
 # GET

@@ -1,21 +1,23 @@
 {% extends 'base.html' %} {% block content %}
 
-<h2>Classes</h2>
+<h2>Activities</h2>
 <table class="box_styling">
   <tr>
     <th>Name</th>
     <th>Start Time</th>
     <th>Duration</th>
   </tr>
-  {% for activity in activities %}
+  {% for session in sessions %}
   <tr class="row_bgcolor">
-    <td><a href="/activities/{{ activity.id }}"> {{ activity.name }} </a></td>
-    <td>{{ activity.start_time }}</td>
-    <td>{{ activity.duration }} min</td>
+    <td>{{ session.activity.name }}</td>
+    <td>{{ session.time }}</td>
+    <td>{{ session.duration }} min</td>
   </tr>
 
+  {% endfor %} {% for activity in activities %}
+  <p>{{ activity.name }}</p>
   {% endfor %}
 </table>
-<button class="btn"><a href="/activities/new">New Class</a></button>
+<button class="btn"><a href="/activities/new">New Activity</a></button>
 
 {% endblock content %}

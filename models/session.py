@@ -1,6 +1,6 @@
 class Session:
-    def __init__(self, member, activity, date, id=None):
-        self.member = member
+    def __init__(self, time, duration, activity, id=None):
+        self.time = time
+        self.duration = duration
         self.activity = activity
-        self.date = date
         self.id = id

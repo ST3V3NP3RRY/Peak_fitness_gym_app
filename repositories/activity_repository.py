@@ -6,10 +6,10 @@ from models.member import Member
 # Save
 def save(activity):
     sql = """
-    INSERT INTO activities ( name, start_time, duration )
-    VALUES ( %s, %s, %s ) RETURNING id
+    INSERT INTO activities ( name )
+    VALUES ( %s ) RETURNING id
     """
-    values = [activity.name, activity.start_time, activity.duration]
+    values = [activity.name]
     results = run_sql(sql, values)
     activity.id = results[0]["id"]
     return activity
@@ -22,7 +22,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        activity = Activity(row["name"], row["start_time"], row["duration"], row["id"])
+        activity = Activity(row["name"], row["id"])
         activities.append(activity)
     return activities
 
@@ -35,9 +35,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        activity = Activity(
-            result["name"], result["start_time"], result["duration"], result["id"]
-        )
+        activity = Activity(result["name"], result["id"])
     return activity
 
 
@@ -47,9 +45,11 @@ def members(activity):
 
     sql = """
     SELECT members.* FROM members 
-    INNER JOIN sessions 
-    ON sessions.member_id = members.id 
-    WHERE activity_id = %s
+    INNER JOIN bookings 
+    ON bookings.member_id = members.id
+    INNER JOIN sessions
+    ON bookings.session_id = sessions.id
+    WHERE sessions.activity_id = %s
     """
     values = [activity.id]
     results = run_sql(sql, values)
@@ -66,7 +66,7 @@ def update(activity):
     sql = """
     UPDATE activities SET (name, start_time, duration ) = ( %s, %s, %s ) WHERE id = %s
     """
-    values = [activity.name, activity.start_time, activity.duration, activity.id]
+    values = [activity.name, activity.id]
 
     run_sql(sql, values)
 

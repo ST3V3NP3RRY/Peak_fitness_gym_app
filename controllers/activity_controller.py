@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.activity import Activity
+from models.session import Session
+import repositories.session_repository as session_repository
 import repositories.activity_repository as activity_repository
 import repositories.member_repository as member_repository
 
@@ -10,7 +12,10 @@ activity_blueprint = Blueprint("activity", __name__)
 @activity_blueprint.route("/activities/index")
 def activity():
     activities = activity_repository.select_all()
-    return render_template("activities/index.html", activities=activities)
+    sessions = session_repository.select_all()
+    return render_template(
+        "/activities/index.html", sessions=sessions, activities=activities
+    )
 
 
 # Show form to create new activity --------------------------
