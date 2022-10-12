@@ -2,6 +2,7 @@ from db.run_sql import run_sql
 
 from models.activity import Activity
 from models.member import Member
+from models.session import Session
 
 # Save single member into database table members
 def save(member):
@@ -53,15 +54,35 @@ def update(member):
     run_sql(sql, values)
 
 
-# Activity(member)
+def sessions(member):
+    sessions = []
+
+    sql = """
+    SELECT sessions. * FROM sessions
+    INNER JOIN bookings
+    ON bookings.session_id = sessions.id
+    WHERE member_id = %s
+    """
+    values = [member.id]
+    results = run_sql(sql, values)
+    for row in results:
+        session = Session(row["time"], row["duration"], row["activity_id"], row["id"])
+        sessions.append(session)
+    return sessions
+
+
 def activities(member):
     activities = []
 
     sql = """
-    SELECT activities.* FROM activities 
-    INNER JOIN sessions 
-    ON sessions.activity_id = activities.id WHERE member_id = %s
+    SELECT activities.* FROM activities
+    INNER JOIN sessions
+    ON sessions.activity_id = activities.id
+    INNER JOIN bookings
+    ON bookings.session_id = bookings.id
+    WHERE bookings.member_id = %s
     """
+
     values = [member.id]
     results = run_sql(sql, values)
     for row in results:

@@ -1,4 +1,6 @@
 {% extends 'base.html' %} {% block content %}
+<h2>Add Member</h2>
+<br />
 <form class="box_styling" action="/members/index" method="post">
   <div>
     <label for="member_name">Member's Name:</label>
@@ -22,7 +24,7 @@
     <input type="text" id="address" name="address" />
   </div>
 
-  <div>
+  <!-- <div>
     <label for="premium_membership">Premium</label>
     <input
       type="radio"
@@ -36,8 +38,8 @@
       id="premium_membership"
       name="membership_type"
       value="premium"
-    />
-  </div>
+    /> -->
+  <!-- </div> -->
 
   <input class="btn" type="submit" value="Update" />
 </form>

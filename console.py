@@ -158,7 +158,7 @@ booking_repository.save(booking12)
 # for session in all_sessions:
 #     print(session.__dict__)
 
-all_bookings = booking_repository.select_all()
+# all_bookings = booking_repository.select_all()
 
-for booking in all_bookings:
-    print(booking.id)
+# for booking in all_bookings:
+#     print(booking)

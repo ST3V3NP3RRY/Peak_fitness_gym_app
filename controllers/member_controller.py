@@ -22,9 +22,12 @@ def new_member():
 # Show member ------------------------------------------
 @member_blueprint.route("/members/<id>", methods=["GET"])
 def show(id):
-    members = member_repository.select(id)
-    activities = member_repository.activities(members)
-    return render_template("members/show.html", members=members, activities=activities)
+    member = member_repository.select(id)
+    activities = member_repository.activities(member)
+    sessions = member_repository.sessions(member)
+    return render_template(
+        "members/show.html", member=member, activities=activities, sessions=sessions
+    )
 
 
 # Create a new Member -------------------------------------

@@ -1,28 +1,26 @@
 {% extends 'base.html' %} {% block content %}
-<form class="box_styling" action="/activities/index" method="post">
+<h2>New Booking</h2>
+<br />
+<form class="box_styling" action="/bookings/index" method="post">
   <div>
-    <label for="activity_name">Session Name:</label>
-    <input
-      type="text"
-      id="activity_name"
-      name="activity_name"
-      placeholder="Name of Activity"
-      required
-      autofocus
-    />
+    <label for="session">Session:</label>
+    <select id="session" name="session_id">
+      {% for session in sessions %}
+      <option value="{{ session.id }}">{{ session.activity.name }}</option>
+      {% endfor %}
+    </select>
   </div>
 
   <div>
-    <label for="start_time">Start Time:</label>
-    <input type="number" id="stat_time" name="start_time" required />
+    <label for="member">Member:</label>
+    <select id="member" name="member_id">
+      {% for member in members %}
+      <option value="{{ member.id }}">{{ member.name }}</option>
+      {% endfor %}
+    </select>
   </div>
 
-  <div>
-    <label for="duration">Length of activity:</label>
-    <input type="number" id="duration" name="duration" required />
-  </div>
-
-  <input class="btn" type="submit" value="Update" />
+  <input class="btn" type="submit" value="New Booking" />
 </form>
 
 {% endblock content %}

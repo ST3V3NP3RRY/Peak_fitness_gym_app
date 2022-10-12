@@ -9,7 +9,11 @@ def save(session):
     sql = """INSERT INTO sessions ( time, duration, activity_id ) 
     VALUES ( %s, %s, %s ) RETURNING id
     """
-    values = [session.time, session.duration, session.activity.id]
+    values = [
+        session.time,
+        session.duration,
+        session.activity.id,
+    ]
     results = run_sql(sql, values)
     session.id = results[0]["id"]
     return session
@@ -37,7 +41,9 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        activity = activity_repository.select(id)
+        activity = activity_repository.select(
+            result["activity_id"]
+        )  # Here is the problem I think
         session = Session(result["time"], result["duration"], activity, result["id"])
     return session
 
@@ -52,7 +58,8 @@ def activity(session):
 
 # NEEDS REFACTORED
 # Activity Session
-def member(session):
+def members(session):
+
     sql = "SELECT * FROM members WHERE id = %s"
     values = [session.member.id]
     result = run_sql(sql, values)[0]
@@ -60,13 +67,28 @@ def member(session):
     return member
 
 
-# NEEDS REFACTORED
-# Update member
+def session_members(session):
+    session_members = []
+
+    sql = """
+    SELECT members.* FROM members
+    INNER JOIN bookings
+    ON bookings.member_id = members.id
+    WHERE session_id = %s
+    """
+    values = [session.id]
+    results = run_sql(sql, values)
+    for row in results:
+        member = Member(row["name"], row["age"], row["address"])
+        session_members.append(member)
+    return session_members
+
+
 def update(session):
     sql = """UPDATE sessions 
     SET ( member, activity, date ) = ( %s, %s, %s ) WHERE id = %s
     """
-    values = [session.member, session.activity, session.date, session.id]
+    values = [session.time, session.duration, session.activity.id]
     run_sql(sql, values)
 
 

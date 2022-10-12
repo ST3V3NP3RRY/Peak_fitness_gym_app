@@ -1,13 +1,14 @@
 {% extends 'base.html' %} {% block content %}
-<form class="box_styling" action="/session/{{session.id}}" method="post">
+<h2>Update Session</h2>
+<br />
+<form class="box_styling" action="/sessions/{{session.id}}" method="post">
   <div>
-    <label for="session_name">Session Name:</label>
-    <input
-      type="text"
-      id="session_name"
-      name="session_name"
-      value="{{ session.activity.name }}"
-    />
+    <label for="activity">Activity Name:</label>
+    <select id="activity" name="activity_id">
+      {% for activity in activities %}
+      <option value="{{ activity.id }}">{{ activity.name }}</option>
+      {% endfor %}
+    </select>
   </div>
 
   <div>

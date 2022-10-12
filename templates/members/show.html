@@ -5,16 +5,22 @@
     src="/static/images/profile_placeholder.png"
     alt=""
   />
-  <h3>{{ members.name }}</h3>
+  <h3>{{ member.name }}</h3>
   <h4>Contact information:</h4>
-  <p>Age: {{ members.age }}</p>
-  <p>Address: {{ members.address }}</p>
+  <p>Age: {{ member.age }}</p>
+  <p>Address: {{ member.address }}</p>
 
   <h4>Enrolled classes:</h4>
+  {% for activity in activities %}
+  <p>{{ activity.name }}</p>
+
+  {% endfor %}
 
   <ul>
-    {% for activity in activities %}
-    <li>{{ activity.name }} | {{ activity.start_time }}</li>
+    {% for session in sessions %}
+    <li>{{ session.activity_id }}</li>
+    <li>Start Time: {{ session.time }}</li>
+    <li>Duration: {{ session.duration }}</li>
     {% endfor %}
   </ul>
 </div>

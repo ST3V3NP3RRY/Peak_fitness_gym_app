@@ -1,18 +1,22 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="box_styling">
-  <h1>{{ session.activity.name }}</h1>
+<div class="box_styling session_card">
+  <h3 class="session_header">{{ activity.name }}</h3>
+  <hr />
   <p>Start Time: {{ session.time }}</p>
   <p>Duration: {{ session.duration }}</p>
-
+  <hr />
   <h3>Enrolled members:</h3>
+  {% for member in members %}
   <ul>
-    {% for member in members %}
-    <li>{{ member.name }} {{ activity.start_time }}</li>
-    {% endfor %}
+    <li>{{ member.name }}</li>
   </ul>
 
-  <p><a class="btn" href="/sessions/{{ session.id }}/edit">Edit</a></p>
+  {% endfor %}
 </div>
+
+<button class="btn">
+  <a href="/sessions/{{ session.id }}/edit">Edit Session</a>
+</button>
 
 {% endblock content %}

@@ -15,6 +15,17 @@
   box-shadow: none;
 }
 
+.edit_btn {
+  margin-top: 2rem;
+}
+
 input .btn {
   height: auto;
+}
+
+input:hover,
+.butt:hover {
+  height: auto;
+  background-color: rgba(131, 58, 180, 1) 0%;
+  color: white;
 }

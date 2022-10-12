@@ -38,7 +38,7 @@ def select(id):
         activity = Activity(result["name"], result["id"])
     return activity
 
-# def members(location):
+
 def members(activity):
     members = []
 

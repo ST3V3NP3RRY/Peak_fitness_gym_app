@@ -22,33 +22,57 @@ def sessions():
 # Route to form for making new session
 @session_blueprint.route("/sessions/new", methods=["GET"])
 def new_session():
-    return render_template("sessions/new.html")
+    activities = activity_repository.select_all()
+    return render_template("sessions/new.html", activities=activities)
 
 
 # Show session details
 @session_blueprint.route("/sessions/<id>", methods=["GET"])
 def show_session(id):
     session = session_repository.select(id)
-    return render_template("sessions/show.html", session=session)
+    activity = session_repository.activity(session)
+    members = session_repository.session_members(session)
+    return render_template(
+        "sessions/show.html", session=session, members=members, activity=activity
+    )
 
 
 @session_blueprint.route("/sessions/<id>/edit")
 def edit_activity(id):
+    activities = activity_repository.select_all()
     session = session_repository.select(id)
-    return render_template("/sessions/edit.html", session=session)
+    return render_template(
+        "/sessions/edit.html", session=session, activities=activities
+    )
 
 
 # Create a New session
 @session_blueprint.route("/sessions/index", methods=["POST"])
 def create_session():
-    pass
+
     start_time = request.form["start_time"]
     duration = request.form["duration"]
-    # activity =
+    activity = request.form["activity_id"]
 
-    # How can I get the activity to make a new session
-    new_session = Session(start_time, duration, activity)
+    activity_id = activity_repository.select(activity)
+
+    new_session = Session(start_time, duration, activity_id)
     session_repository.save(new_session)
+    return redirect("/sessions/index")
+
+
+# Update session
+@session_blueprint.route("/sessions/<id>", methods=["POST"])
+def update_session(id):
+    activity = request.form["activity_id"]
+    start_time = request.form["start_time"]
+    duration = request.form["duration"]
+
+    activity_id = activity_repository.select(activity)
+
+    session = Session(start_time, duration, activity_id)
+
+    session_repository.update(session)
     return redirect("/sessions/index")
 
 

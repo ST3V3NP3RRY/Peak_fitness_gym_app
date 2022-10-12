@@ -1,20 +1,19 @@
 {% extends 'base.html' %} {% block content %}
+<h2>New Session</h2>
+<br />
 <form class="box_styling" action="/sessions/index" method="post">
   <div>
-    <label for="session_name">Activity Name:</label>
-    <input
-      type="text"
-      id="activity_name"
-      name="activity_name"
-      placeholder="Enter the Name of the Activity"
-      required
-      autofocus
-    />
+    <label for="activity">Activity Name:</label>
+    <select id="activity" name="activity_id">
+      {% for activity in activities %}
+      <option value="{{ activity.id }}">{{ activity.name }}</option>
+      {% endfor %}
+    </select>
   </div>
 
   <div>
     <label for="start_time">Start Time:</label>
-    <input type="number" id="stat_time" name="start_time" required />
+    <input type="number" id="start_time" name="start_time" required />
   </div>
 
   <div>
@@ -22,7 +21,7 @@
     <input type="number" id="duration" name="duration" required />
   </div>
 
-  <input class="btn" type="submit" value="Update" />
+  <input class="btn" type="submit" value="Create New Session" />
 </form>
 
 {% endblock content %}

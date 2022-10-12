@@ -37,6 +37,17 @@ header {
   justify-content: space-between;
 }
 
+.logo_container {
+  display: flex;
+}
+
+.logo {
+  flex: 0 0 auto;
+  width: 10rem;
+  height: auto;
+  margin-right: 2rem;
+}
+
 h1 {
   font-size: 5rem;
 }
@@ -45,6 +56,7 @@ h2 {
   font-size: 6rem;
   color: white;
   text-shadow: 0px 0px 10px rgba(43, 19, 12, 0.42);
+  text-align: center;
 }
 
 header > nav > ul {
@@ -112,20 +124,41 @@ hr {
   align-items: center;
 }
 
+.booking_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 3rem;
+}
+
+.booking {
+  background-color: white;
+  margin: 2rem;
+  padding: 2rem;
+}
+
 .flex-row {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: center;
-  gap: 5rem;
+  gap: 2rem;
   padding: 3rem;
-  overflow-x: scroll;
+  margin: 0 4rem;
 }
 
 .session {
   flex: 0 0 auto;
   padding: 2rem;
   width: 24rem;
-  line-height: 3rem;
+  line-height: 2.5rem;
+}
+
+.session_header {
+  font-size: 3rem;
+  color: rgba(131, 58, 180, 1);
 }
 
 .box_styling {
