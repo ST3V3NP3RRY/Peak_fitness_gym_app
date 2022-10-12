@@ -14,6 +14,5 @@ booking_blueprint = Blueprint("bookings", __name__)
 
 @booking_blueprint.route("/bookings/index")
 def sessions():
-    members = activity_repository.members
     bookings = booking_repository.select_all()
-    return render_template("sessions/index.html", bookings=bookings, members=members)
+    return render_template("bookings/index.html", bookings=bookings)

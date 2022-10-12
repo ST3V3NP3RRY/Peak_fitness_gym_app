@@ -11,7 +11,7 @@ import repositories.booking_repository as booking_repository
 
 session_blueprint = Blueprint("sessions", __name__)
 
-
+# Display all sessions
 @session_blueprint.route("/sessions/index")
 def sessions():
     sessions = session_repository.select_all()
@@ -25,15 +25,26 @@ def new_session():
     return render_template("sessions/new.html")
 
 
+# Show session details
+@session_blueprint.route("/sessions/<id>", methods=["GET"])
+def show_session(id):
+    session = session_repository.select(id)
+    return render_template("sessions/show.html", session=session)
+
+
+@session_blueprint.route("/sessions/<id>/edit")
+def edit_activity(id):
+    session = session_repository.select(id)
+    return render_template("/sessions/edit.html", session=session)
+
+
 # Create a New session
 @session_blueprint.route("/sessions/index", methods=["POST"])
 def create_session():
     pass
     start_time = request.form["start_time"]
     duration = request.form["duration"]
-    # activity = 
-
-    
+    # activity =
 
     # How can I get the activity to make a new session
     new_session = Session(start_time, duration, activity)

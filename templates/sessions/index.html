@@ -9,7 +9,7 @@
   </tr>
   {% for session in sessions %}
   <tr class="row_bgcolor">
-    <td>{{ session.activity.name }}</td>
+    <td><a href="/sessions/{{ session.id }}">{{ session.activity.name }}</td>
     <td>{{ session.time }}</td>
     <td>{{ session.duration }} min</td>
   </tr>

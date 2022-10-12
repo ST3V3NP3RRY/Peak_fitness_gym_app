@@ -1,16 +1,18 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>{{ activity.name }}</h1>
-<p>Start Time: {{ activity.start_time }}</p>
-<p>Duration: {{ activity.duration }}</p>
+<div class="box_styling">
+  <h1>{{ session.activity.name }}</h1>
+  <p>Start Time: {{ session.time }}</p>
+  <p>Duration: {{ session.duration }}</p>
 
-<h3>Enrolled members:</h3>
-<ul>
-  {% for member in members %}
-  <li>{{ member.name }} {{ activity.start_time }}</li>
-  {% endfor %}
-</ul>
+  <h3>Enrolled members:</h3>
+  <ul>
+    {% for member in members %}
+    <li>{{ member.name }} {{ activity.start_time }}</li>
+    {% endfor %}
+  </ul>
 
-<p><a class="btn" href="/activities/{{ activities.id }}/edit">Edit</a></p>
+  <p><a class="btn" href="/sessions/{{ session.id }}/edit">Edit</a></p>
+</div>
 
 {% endblock content %}
