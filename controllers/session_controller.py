@@ -64,13 +64,11 @@ def create_session():
 # Update session
 @session_blueprint.route("/sessions/<id>", methods=["POST"])
 def update_session(id):
-    activity = request.form["activity_id"]
-    start_time = request.form["start_time"]
+    activity = activity_repository.select(request.form["activity_id"])
+    time = request.form["time"]
     duration = request.form["duration"]
 
-    activity_id = activity_repository.select(activity)
-
-    session = Session(start_time, duration, activity_id)
+    session = Session(time, duration, activity, id)
 
     session_repository.update(session)
     return redirect("/sessions/index")

@@ -86,10 +86,19 @@ def session_members(session):
 
 def update(session):
     sql = """UPDATE sessions 
-    SET ( member, activity, date ) = ( %s, %s, %s ) WHERE id = %s
+    SET ( time, duration, activity_id ) = ( %s, %s, %s ) WHERE id = %s
     """
-    values = [session.time, session.duration, session.activity.id]
+    values = [session.time, session.duration, session.activity.id, session.id]
     run_sql(sql, values)
+
+
+# # Update member
+# def update(member):
+#     sql = """UPDATE members
+#     SET ( name, age, address ) = ( %s, %s, %s ) WHERE id = %s
+#     """
+#     values = [member.name, member.age, member.address, member.id]
+#     run_sql(sql, values)
 
 
 def delete_all():
