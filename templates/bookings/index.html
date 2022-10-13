@@ -9,7 +9,10 @@
     {% for booking in bookings %}
     <tr class="row_bgcolor">
       <td>{{ booking.session.activity.name }}</td>
-      <td>{{ booking.session.time }}</td>
+      <td>
+        <img src="/static/images/time.svg" alt="#" class="icons" />{{
+        booking.session.time }}
+      </td>
       <td>{{ booking.member.name }}</td>
     </tr>
     {% endfor %}

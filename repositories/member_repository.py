@@ -58,7 +58,7 @@ def sessions(member):
     sessions = []
 
     sql = """
-    SELECT sessions. * FROM sessions
+    SELECT sessions.* FROM sessions
     INNER JOIN bookings
     ON bookings.session_id = sessions.id
     WHERE member_id = %s
@@ -79,7 +79,7 @@ def activities(member):
     INNER JOIN sessions
     ON sessions.activity_id = activities.id
     INNER JOIN bookings
-    ON bookings.session_id = bookings.id
+    ON bookings.session_id = sessions.id
     WHERE bookings.member_id = %s
     """
 

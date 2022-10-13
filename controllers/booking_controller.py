@@ -28,13 +28,11 @@ def new_booking():
 
 @booking_blueprint.route("/bookings/index", methods=["POST"])
 def create_new_booking():
-    member = request.form["member_id"]
-    session = request.form["session_id"]
 
-    member_id = member_repository.select(member)
-    session_id = member_repository.select(session)
+    member = member_repository.select(request.form["member_id"])
+    session = session_repository.select(request.form["session_id"])
 
-    booking = Booking(member_id, session_id)
+    booking = Booking(member, session)
     booking_repository.save(booking)
 
     return redirect("/bookings/index")

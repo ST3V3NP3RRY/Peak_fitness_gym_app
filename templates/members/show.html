@@ -7,22 +7,22 @@
   />
   <h3>{{ member.name }}</h3>
   <h4>Contact information:</h4>
+
   <p>Age: {{ member.age }}</p>
   <p>Address: {{ member.address }}</p>
 
   <h4>Enrolled classes:</h4>
+
   {% for activity in activities %}
-  <p>{{ activity.name }}</p>
+  <div class="member_activity">
+    <h4>{{ activity.name }}</h4>
 
+    {% for session in sessions %} {% if session.id == activity.id %}
+    <p>Start Time: {{ session.time }} | Duration: {{ session.duration }}mins</p>
+
+    {% endif %} {% endfor %}
+  </div>
   {% endfor %}
-
-  <ul>
-    {% for session in sessions %}
-    <li>{{ session.activity_id }}</li>
-    <li>Start Time: {{ session.time }}</li>
-    <li>Duration: {{ session.duration }}</li>
-    {% endfor %}
-  </ul>
 </div>
 
 {% endblock content %}

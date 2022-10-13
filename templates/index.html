@@ -1,8 +1,39 @@
 {% extends 'base.html' %} {% block content %}
 <div class="page_container">
   <div class="content_wrapper">
-    <p class="date_time">Today is <b>{{ date }}</b></p>
-    <p class="date_time">The time is <b>{{ current_time }}</b></p>
+
+    <div class="datetime">
+      <p class="date_time"><b>{{ date }}</b></p>
+      <p class="date_time">The time is <b>{{ current_time }}</b></p>
+    </div>
+
+    <form action="" class="box_styling">
+      <h3>Login Details</h3>
+      <hr />
+      <div>
+        <label for="user_name">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter your username"
+          required
+          autofocus
+        />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+      <a href="#">Create an account</a>
+      <input class="btn" type="submit"></input>
+    </form>
   </div>
 </div>
 {% endblock content %}

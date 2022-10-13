@@ -56,14 +56,11 @@ activity_repository.save(activity3)
 activity4 = Activity("Gymnastics")
 activity_repository.save(activity4)
 
-# activity5 = Activity("Swimming")
-# activity_repository.save(activity5)
+activity6 = Activity("Grit Cardio")
+activity_repository.save(activity6)
 
-# activity6 = Activity("Grit Cardio")
-# activity_repository.save(activity6)
-
-# activity7 = Activity("Gym Circuits")
-# activity_repository.save(activity7)
+activity7 = Activity("Gym Circuits")
+activity_repository.save(activity7)
 
 # -------------
 # SESSIONS
@@ -81,23 +78,17 @@ session_repository.save(session3)
 session4 = Session(1300, 45, activity4)
 session_repository.save(session4)
 
-# session5 = Session(1330, 40, activity1)
-# session_repository.save(session5)
+session5 = Session(1330, 40, activity1)
+session_repository.save(session5)
 
-# session6 = Session(1300, 45, activity3)
-# session_repository.save(session6)
+session6 = Session(1345, 45, activity3)
+session_repository.save(session6)
 
-# session7 = Session(1330, 40, activity5)
-# session_repository.save(session7)
+session7 = Session(1445, 50, activity6)
+session_repository.save(session7)
 
-# session8 = Session(1445, 50, activity6)
-# session_repository.save(session8)
-
-# session9 = Session(1530, 60, activity4)
-# session_repository.save(session9)
-
-# session10 = Session(1630, 35, activity5)
-# session_repository.save(session10)
+session8 = Session(1530, 60, activity7)
+session_repository.save(session8)
 
 # -------------
 # BOOKINGS
@@ -109,38 +100,23 @@ booking_repository.save(booking1)
 booking2 = Booking(member2, session1)
 booking_repository.save(booking2)
 
-booking3 = Booking(member3, session1)
+booking3 = Booking(member4, session2)
 booking_repository.save(booking3)
 
-
-booking4 = Booking(member4, session2)
+booking4 = Booking(member5, session2)
 booking_repository.save(booking4)
 
-booking5 = Booking(member5, session2)
+booking5 = Booking(member1, session3)
 booking_repository.save(booking5)
 
-booking6 = Booking(member6, session2)
+booking6 = Booking(member4, session3)
 booking_repository.save(booking6)
 
-
-booking7 = Booking(member1, session3)
+booking7 = Booking(member6, session3)
 booking_repository.save(booking7)
 
-booking8 = Booking(member4, session3)
+booking8 = Booking(member2, session4)
 booking_repository.save(booking8)
-
-booking9 = Booking(member6, session3)
-booking_repository.save(booking9)
-
-
-booking10 = Booking(member2, session4)
-booking_repository.save(booking10)
-
-booking11 = Booking(member3, session4)
-booking_repository.save(booking11)
-
-booking12 = Booking(member5, session4)
-booking_repository.save(booking12)
 
 
 # WORKING

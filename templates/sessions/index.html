@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<h2>Upcoming Sessions</h2>
+<h2>Today's Sessions</h2>
 <table class="box_styling">
   <tr>
     <th>Name</th>
@@ -10,8 +10,8 @@
   {% for session in sessions %}
   <tr class="row_bgcolor">
     <td><a href="/sessions/{{ session.id }}">{{ session.activity.name }}</td>
-    <td>{{ session.time }}</td>
-    <td>{{ session.duration }} min</td>
+    <td><img src="/static/images/time.svg" alt="#" class="icons">{{ session.time }}</td>
+    <td><img src="/static/images/hourglass.svg" alt="#" class="icons">{{ session.duration }} min</td>
   </tr>
 
   {% endfor %}
