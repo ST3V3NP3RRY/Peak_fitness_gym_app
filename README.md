@@ -38,8 +38,6 @@ The wanted the completed applications to be easy to use with clear headings and 
 
 ## How to run the application
 
-Python_project
-
 To run Peak Fitness Booking app do the following:
 
 - DROP any existing conflicting db managers in terminal: 'dropdb peak_fitness'
