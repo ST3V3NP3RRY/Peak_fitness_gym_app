@@ -33,6 +33,8 @@ The wanted the completed applications to be easy to use with clear headings and 
 
 #### Screenshots of the completed application
 
+<img src="https://github.com/ST3V3NP3RRY/Peak_fitness_gym_app/blob/main/Class%20Diagram.png" >
+
 
 
 
