@@ -19,3 +19,5 @@ The purpose of the project was to design an activity booking system for a gym. T
 ## Planning
 
 I began by mapping out the fundamental features of the application by producing a series of wireframes allowing me to visualise the components and how the app would be structured. I also mapped out the relationships between the tables in my database using class diagrams.
+
+<img src="http://url/image.png" height="60" width="60" >
