@@ -42,12 +42,12 @@ Python_project
 
 To run Peak Fitness Booking app do the following:
 
-DROP any existing conflicting db managers in terminal: 'dropdb peak_fitness'
-CREATE your db manager in terminal: 'createdb peak_fitness'
-JOIN the two with the following terminal command and create your tables: 'psql -d peak_fitness -f peak_fitness.sql'
-LOAD existing data in terminal by: 'python3 console.py'
-RUN the app so you can access local host in terminal by: 'flask run'
-OPEN host by clicking on '* Running on http://127.0.0.1:5000' use either option/cmd click to open this in a new browser
+- DROP any existing conflicting db managers in terminal: 'dropdb peak_fitness'
+- CREATE your db manager in terminal: 'createdb peak_fitness'
+- JOIN the two with the following terminal command and create your tables: 'psql -d peak_fitness -f peak_fitness.sql'
+- LOAD existing data in terminal by: 'python3 console.py'
+- RUN the app so you can access local host in terminal by: 'flask run'
+- OPEN host by clicking on '* Running on http://127.0.0.1:5000' use either option/cmd click to open this in a new browser
 
 
 
