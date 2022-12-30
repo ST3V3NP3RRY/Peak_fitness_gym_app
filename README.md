@@ -16,4 +16,6 @@ This was my first project while studying software development at CodeClan. The t
 
 The purpose of the project was to design an activity booking system for a gym. The task was to create software that manages the members, classes and bookings of a gym. The minimum viable product included enabling the user to create and edit members, create and delete classes, view a list of classes, assign a member to a class and view members attending each class.
 
-## Planning 
+## Planning
+
+I began by mapping out the fundamental features of the application by producing a series of wireframes allowing me to visualise the components and how the app would be structured. I also mapped out the relationships between the tables in my database using class diagrams.
