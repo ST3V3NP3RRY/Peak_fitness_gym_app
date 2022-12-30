@@ -10,6 +10,10 @@ This was my first project while studying software development at CodeClan. The t
 - Object-oriented programming
 - Test-driven development(TDD)
 - Representational state transfer architecture (RESTful development)
-- Model-View_Controller architecture (MVC)
+- Model-View-Controller architecture (MVC)
 
 ## Brief
+
+The purpose of the project was to design an activity booking system for a gym. The task was to create software that manages the members, classes and bookings of a gym. The minimum viable product included enabling the user to create and edit members, create and delete classes, view a list of classes, assign a member to a class and view members attending each class.
+
+## Planning 
