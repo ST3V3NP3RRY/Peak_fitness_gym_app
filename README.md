@@ -25,7 +25,7 @@ I began by mapping out the fundamental features of the application by producing 
 <img src="https://github.com/ST3V3NP3RRY/Peak_fitness_gym_app/blob/main/Wireframes.png">
 
 #### Class and Object Diagrams
-<img src="https://github.com/ST3V3NP3RRY/Peak_fitness_gym_app/blob/main/Class%20Diagram.png">
+<img src="https://github.com/ST3V3NP3RRY/Peak_fitness_gym_app/blob/main/Group%20Screenshots.png">
 
 ## Design 
 
