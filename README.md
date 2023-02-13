@@ -30,7 +30,7 @@ I began by mapping out the fundamental features of the application by producing 
 
 ## Design 
 
-The wanted the completed applications to be easy to use with clear headings and signposts guiding the user through completing the tasks while using the app. I designed the app  to be mobile responsive so the it would work as intended on various viewports and device dimensions. This gave me the opportunity to research and utilise flexbox and CSS Media quieries to provide the functionality I needed within the application.
+I wanted the completed applications to be easy to use with clear headings and signposts guiding the user through completing the tasks while using the app. I designed the app  to be mobile responsive so the it would work as intended on various viewports and device dimensions. This gave me the opportunity to research and utilise flexbox and CSS Media quieries to provide the functionality I needed within the application.
 
 #### Screenshots of the completed application (desktop view)
 
